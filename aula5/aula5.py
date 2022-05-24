@@ -17,5 +17,5 @@ print('Divisão / :', 10 / 2)
 """
 print(5+2*10)
 print((5+2)*10)
-#print(5+2*10)
+#  print(5+2*10)
 

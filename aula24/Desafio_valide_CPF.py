@@ -18,52 +18,36 @@ CPF = 168.995.350-09
 11 > 9 = 0 #se resultado for menor que 9, vale o numero
 Digito 1 = 0                           Digito 2 = 9
 
-
 """
+#cpf = '168.995.350-09'
+cpf = input('Digite seu CPF no seguinte formato xxx.xxx.xxx-xx : ')
+cpf_verificador = cpf.split('-')[0].replace('.', '')
 
-cpf = '168.995.350-09'
-cpf_verificador = cpf.split('-')[1]
-cpf_01 = cpf.split('-')[0].replace('.', '')
-# cpf_verificador = cpf_dividido[1]
-
-novo_cpf = ''
 cont = 0
-soma_01 = 0
-soma_02 = 0
+soma = 0
 
 for r in range(10, 1, -1):
-    soma_01 = soma_01 + (int(cpf_01[cont]) * r)
+    soma = soma + (int(cpf_verificador[cont]) * r)
     cont += 1
 
-digito_1 = 11 - (soma_01 % 11)
+digito_verificador = 11 - (soma % 11)
+digito_maior = (digito_verificador > 9)
 
-if digito_1 > 9:
-    digito_1 = '0'
-else:
-    digito_1 = str(digito_1)
+cpf_verificador = cpf_verificador + '0' if digito_maior else cpf_verificador + str(digito_verificador)
 
-
-print(soma_01, digito_1)
-
-cpf_01 = cpf_01 + digito_1
-print(cpf_01)
-
-
+soma = 0
 cont = 0
+
 for r in range(11, 1, -1):
-    soma_02 = soma_02 + (int(cpf_01[cont]) * r)
+    soma = soma + (int(cpf_verificador[cont]) * r)
     cont += 1
 
-digito_2 = 11 - (soma_02 % 11)
+digito_verificador = 11 - (soma % 11)
+digito_maior = (digito_verificador > 9)
 
-if digito_2 > 9:
-    digito_2 = '0'
-else:
-    digito_2 = str(digito_2)
+cpf_verificador = cpf_verificador + '0' if digito_maior else cpf_verificador + str(digito_verificador)
 
-cpf_01 = cpf_01 + digito_2
-
-if cpf_01 == cpf.replace('.', '').replace('-', ''):
+if cpf_verificador == cpf.replace('.', '').replace('-', ''):
     print('CPF Válido')
 else:
     print('CPF Inválido')

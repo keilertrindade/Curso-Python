@@ -19,8 +19,9 @@ CPF = 168.995.350-09
 Digito 1 = 0                           Digito 2 = 9
 
 """
-#cpf = '168.995.350-09'
-cpf = input('Digite seu CPF no seguinte formato xxx.xxx.xxx-xx : ')
+
+cpf = '168.995.350-09'
+# cpf = input('Digite seu CPF no seguinte formato xxx.xxx.xxx-xx : ')
 cpf_verificador = cpf.split('-')[0].replace('.', '')
 
 cont = 0
@@ -51,3 +52,4 @@ if cpf_verificador == cpf.replace('.', '').replace('-', ''):
     print('CPF Válido')
 else:
     print('CPF Inválido')
+

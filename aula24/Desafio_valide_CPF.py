@@ -53,3 +53,4 @@ if cpf_verificador == cpf.replace('.', '').replace('-', ''):
 else:
     print('CPF Inválido')
 
+

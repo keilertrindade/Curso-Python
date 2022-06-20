@@ -17,3 +17,5 @@ saudacao(nome='Zezinho', msg='Coe') # Posso chamar a função da forma saudacao(
 
 """
 
+txt = "Hello, welcome to my world."
+print(len(txt))

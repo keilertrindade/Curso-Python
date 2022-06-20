@@ -28,5 +28,5 @@ print(f'{num_2:.2f}')"""
 nome = ' Keiler '
 sobrenome = ' Trindade '
 maisum = 'mais'
-nome_formatado = '{0:$^50} {1:#^50}'.format(nome, sobrenome, maisum)
+nome_formatado = '{0:$^50} {1:#^50}'.format(nome, sobrenome)
 print(nome_formatado)

@@ -1,11 +1,7 @@
 """
 For / Else em Python
 
-"""
-variavel = ['Keiler', 'Maria', 'João']
-comeca_jota = False
-
-"""for valor in variavel:
+for valor in variavel:
     if valor.lower().startswith('k'):
         #print("Começa com K: ", valor)
         comeca_jota = True
@@ -16,6 +12,10 @@ else:
     print('Não existe uma palavra que começa com K!')
 
 """
+
+variavel = ['Keiler', 'Maria', 'João']
+comeca_jota = False
+
 for valor in variavel:
     print(valor)
     if valor.lower().startswith('k'):

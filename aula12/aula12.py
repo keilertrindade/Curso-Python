@@ -14,9 +14,9 @@ except:
 
 #PLACEHOLDER  pass ou ...
 
-valor = False
+teste = "123456"
+teste2 = "123.50"
 
-if valor:
-    ...
-else:
-    print('Tchau')
+
+# print(teste.isnumeric())
+print(teste2.isdigit())

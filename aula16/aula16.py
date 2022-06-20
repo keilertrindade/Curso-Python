@@ -19,7 +19,7 @@ while x < 10:
 print('Acabou!')
 """
 
-x = 0
+"""x = 0
 y = 0
 
 while x < 10:
@@ -29,4 +29,11 @@ while x < 10:
        y += 1
    x += 1
 
-print('Acabou!')
+print('Acabou!')"""
+
+numeros = {9, 1, 2, 3, 4, 5, 5, 3, 8, 4}
+print(numeros)
+numeros.add(10)
+print(numeros)
+numeros.remove(5)
+print(numeros)

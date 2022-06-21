@@ -1,11 +1,10 @@
 import os
 import shutil
 
-diretorio_base = r'E:\Users\DEV\Desktop\teste'
+diretorio_base = input(r'Digite o caminho da pasta: ')
 lista_arquivos = os.listdir(diretorio_base)
 lista_anexos = []
 contador = 0
-#print(lista_arquivos)
 
 for lista in lista_arquivos:
     if lista_arquivos[contador].find("ANEXO") == -1:
@@ -17,11 +16,7 @@ for lista in lista_arquivos:
         shutil.move(origem, destino)
     else:
         lista_anexos.append(lista_arquivos[contador])
-        # print(lista_arquivos[contador], nova_pasta)
     contador += 1
-
-#print(lista_anexos)
-contador = 0
 
 for lista in lista_anexos:
     posicao = lista_anexos[contador].find(". ANEXOS")
@@ -31,3 +26,4 @@ for lista in lista_anexos:
     destino = diretorio_base + '\\' + pasta + '\\' + lista_anexos[contador]
     shutil.move(origem, destino)
     contador += 1
+print("Completo!")

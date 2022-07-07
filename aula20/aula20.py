@@ -17,7 +17,7 @@ for elem in lista:
     print(f'O tipo do valor: {elem} é {type(elem)}')
 """
 
-chances = 3
+"""chances = 3
 secreto = 'perfume'
 digitadas = []
 
@@ -54,3 +54,4 @@ while True:
         break
     else:
         print(f'A palavra secreta é: {secreto_temporario}')
+"""

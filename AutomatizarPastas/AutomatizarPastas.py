@@ -3,7 +3,8 @@ import shutil
 from PyPDF2 import PdfFileWriter, PdfFileReader, PdfFileMerger, PageRange
 import sys
 
-def dividirPdf(origem, nova_pasta, nome_arquivo):
+""" arquivo a ser editado - arquivo de destino - nome da pasta"""
+def dividirPdf (origem, nova_pasta, nome_arquivo):
     leitor = PdfFileReader(open(origem, 'rb'))
     gravador: PdfFileWriter = PdfFileWriter()
     # print(nome_pasta, leitor.getNumPages())

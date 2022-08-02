@@ -13,3 +13,5 @@ lista_b = [4, 5, 5, 9]
 #listas = zip(lista_a, lista_b)
 soma = [x + y for x, y in zip(lista_a, lista_b)]
 print(soma)
+
+

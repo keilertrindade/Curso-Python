@@ -7,6 +7,7 @@ lista = [
     Mas usando dictionary comprehensive podemos processar dados enquanto criamos ele
  """
 
+
 # d1 = {x: y for x,y in lista}
 # d1 = {x: y.upper() for x, y in lista}
 # d1 = {x: y for x, y in enumerate(range(5))}

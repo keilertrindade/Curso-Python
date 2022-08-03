@@ -37,7 +37,7 @@ string = 'Keiler Trindade'
 nova_string = [letra for letra in string]
 #print(nova_string)
 
-numeros = [[numero, numero **2] for numero in range(10)]
+numeros = [[numero, numero **2] for numero in range(5)]
 print(numeros)
 
 flat = [y for x in numeros for y in x]

@@ -12,6 +12,7 @@ Faça uma lista de tarefas com as seguintes opções:
 # variável para ultima operacao (?)
 #
 
+import sys
 
 tarefas = []
 redo_tarefas = []
@@ -23,7 +24,7 @@ def adicionar_tarefa(lista, tarefa):
 
 
 def listar_tarefa():
-    print(f'\nListando tarefas: \n')
+    print(f'\nListando tarefas:')
     print(tarefas)
     print(f'\n')
 
@@ -32,19 +33,21 @@ def desfazer(lista, desfazer):
     desfazer.append(lista[-1])
     lista.pop()
 
+
 def refazer(lista, desfazer):
-    lista.append(desfazer.pop())
+    lista.append(desfazer[-1])
+    desfazer.pop()
 
 
 while True:
     opcao = int(input(f'Escolha a opção: \n'
-          f'1- Adicionar tarefa. \n'
-          f'2- Listar tarefas. \n'
-          f'3- Desfazer ação. \n'
-          f'4- Refazer ação.\n'
-          f'Opção: '
-        )
-    )
+                      f'1- Adicionar tarefa. \n'
+                      f'2- Listar tarefas. \n'
+                      f'3- Desfazer ação. \n'
+                      f'4- Refazer ação.\n'
+                      f'Opção: '
+                      )
+                )
 
     if opcao == 1:
         tarefa = input(f'\nDigite a tarefa que irá ser adicionada: ')
@@ -54,9 +57,13 @@ while True:
         listar_tarefa()
 
     elif opcao == 3:
-        desfazer(tarefas, redo_tarefas)
-
+        if not tarefas:
+            print(f'\nNão há operações para desfazer!\n')
+        else:
+            desfazer(tarefas, redo_tarefas)
 
     elif opcao == 4:
-        refazer(tarefa, redo_tarefas)
-
+        if not redo_tarefas:
+            print(f'\nNão há operações para refazer!\n')
+        else:
+            refazer(tarefas, redo_tarefas)

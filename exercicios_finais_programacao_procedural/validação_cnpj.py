@@ -2,9 +2,9 @@
 
 import validação_cnpj_funções as funcoes
 
-cnpj = '04.438.816/0001-51'
+while True:
+    cnpj = '04.438.816/0001-51'
 cnpj_validacao = funcoes.remover_caracteres(cnpj)
 
 print(funcoes.validar(cnpj, cnpj_validacao))
-
 # Commit para recolocar o código antes de dar merda

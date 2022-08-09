@@ -1,9 +1,14 @@
+VALORES = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
+
+
 def remover_caracteres(cnpj):
-    return gerar_primeiro_digito(cnpj.replace('/', '').replace('.', '').replace('-', ''))
+    cnpj = cnpj.replace('/', '').replace('.', '').replace('-', '')
+    return cnpj
+        # return gerar_primeiro_digito()
 
 
 def gerar_primeiro_digito(cnpj):
-    valores = [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
+    valores = VALORES[1:]
     cnpj = list(cnpj)
     cnpj = cnpj[0:12]
     lista = []
@@ -22,8 +27,7 @@ def gerar_primeiro_digito(cnpj):
 
 
 def gerar_segundo_digito(cnpj):
-
-    valores = [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
+    valores = VALORES
     lista = []
 
     for digito in range(13):
@@ -36,10 +40,18 @@ def gerar_segundo_digito(cnpj):
     else:
         cnpj.append(f'{digito}')
 
-
     return ''.join(cnpj)
 
-def validar(cnpj, cnpj_gerado):
+
+def validar(cnpj):
+    cnpj_validado = remover_caracteres(cnpj)
+
+    if len(cnpj) == 14 or cnpj.isdigit() is True:
+        # return 'Digite um CNPJ válido'
+        return gerar_primeiro_digito(cnpj)
+    else:
+        return 'Digite um CNPJ válido'
+
     cnpj2 = cnpj.replace('/', '').replace('.', '').replace('-', '')
     if cnpj2 == cnpj_gerado:
         return f'CNPJ {cnpj} válido'

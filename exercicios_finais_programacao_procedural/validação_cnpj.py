@@ -7,3 +7,4 @@ cnpj_validacao = funcoes.remover_caracteres(cnpj)
 
 print(funcoes.validar(cnpj, cnpj_validacao))
 
+# Commit para recolocar o código antes de dar merda

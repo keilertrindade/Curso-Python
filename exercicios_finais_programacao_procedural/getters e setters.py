@@ -11,7 +11,7 @@ class Produto:
     # Getter
     @property
     def preco(self):
-        return self._preco  # convensão
+        return self._preco  # convenção
 
     # Setter
     @preco.setter

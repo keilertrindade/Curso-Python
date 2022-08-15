@@ -1,6 +1,5 @@
 from pessoa import Pessoa
 
-
 p1 = Pessoa('Keiler', 26)
 p2 = Pessoa.por_ano_nascimento('Joana', 1995)
 

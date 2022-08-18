@@ -38,10 +38,18 @@ class Cliente(Pessoa):
 
 
 class Conta:
-    def __init__(self, agencia, conta, saldo):
+    def __init__(self, agencia, numero_conta, saldo):
         self._agencia = agencia
-        self._conta = conta
+        self._numero_conta = numero_conta
         self._saldo = saldo
+
+    @property
+    def agencia(self):
+        return self._agencia
+
+    @property
+    def numero_conta(self):
+        return self._numero_conta
 
     @property
     def saldo(self):
@@ -108,11 +116,13 @@ class Banco:
         self._contas.append(num_conta)
 
         if tipo_conta == 'Corrente':
+            # Perguntar limite aqui ?
             conta = ContaCorrente(self._agencias[randint(0, 4)], num_conta, saldo, limite)
         elif tipo_conta == 'Poupanca':
             conta = ContaPoupanca(self._agencias[randint(0, 4)], num_conta, saldo)
 
         cliente = Cliente(nome, idade, conta)
+        self._clientes.append(cliente)
 
         return cliente
 
@@ -123,8 +133,14 @@ class Banco:
             agencias.append(randint(10000, 99999))
         return agencias
 
-    def checar(self):  # Método de checagem, verifica com as informações do cliente se ele pertence nesse banco (?)
-        pass
+    def autenticar_saque(self, cliente,
+                         valor):  # Método de checagem, verifica com as informações do cliente se ele pertence nesse banco (?)
+        conta = cliente.conta
+        if conta._numero_conta in self._contas and conta._agencia in self._agencias and cliente in self._clientes:
+            # print(f'Conta: {conta._numero_conta}')
+            conta.sacar(valor)
+        else:
+            print(f'Cliente não está cadastrado no nosso banco!')
 
     @property
     def agencias(self):

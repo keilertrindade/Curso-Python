@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from random import randint
 
 
 class Pessoa:
@@ -94,16 +95,45 @@ class ContaCorrente(Conta):
 
 
 class Banco:
-    def __init__(self):
-        self._agencias = []
+    def __init__(self, nome):
+        self._nome = nome
+        self._agencias = self.criar_agencias()
         self._contas = []
         self._clientes = []
 
-    def criar_cliente(self, nome, idade, tipo_conta, limite=100):
-        pass
+    def criar_cliente(self, nome, idade, tipo_conta, saldo, limite=100):
+        num_conta = randint(10000, 99999)
+        while num_conta in self._contas:
+            num_conta = randint(10000, 99999)
+        self._contas.append(num_conta)
+
+        if tipo_conta == 'Corrente':
+            conta = ContaCorrente(self._agencias[randint(0, 4)], num_conta, saldo, limite)
+        elif tipo_conta == 'Poupanca':
+            conta = ContaPoupanca(self._agencias[randint(0, 4)], num_conta, saldo)
+
+        cliente = Cliente(nome, idade, conta)
+
+        return cliente
+
+    @staticmethod
+    def criar_agencias():
+        agencias = []
+        for ag in range(5):
+            agencias.append(randint(10000, 99999))
+        return agencias
 
     def checar(self):  # Método de checagem, verifica com as informações do cliente se ele pertence nesse banco (?)
         pass
+
+    @property
+    def agencias(self):
+        return self._agencias
+
+    @property
+    def contas(self):
+        return self._contas
+
 
 """
 Para melhorar posso usar randint para gerar as contas, verificando se não existe na lista daquele banco

@@ -17,7 +17,6 @@ class CalcIPv4:
         print(self.prefixo)
         print(self.numero_ips)
 
-
     @property
     def rede(self):
         return self._rede
@@ -29,7 +28,6 @@ class CalcIPv4:
     @property
     def numero_ips(self):
         return self._get_numero_ips()
-
 
     @property
     def ip(self):
@@ -59,7 +57,7 @@ class CalcIPv4:
 
         self._mascara = valor
         self._mascara_bin = self._ip_to_bin(valor)
-        if not hasattr(self,'prefixo'):
+        if not hasattr(self, 'prefixo'):
             self._prefixo = self._mascara_bin.count('1')
 
     @prefixo.setter
@@ -76,7 +74,6 @@ class CalcIPv4:
         self._bin_to_ip(self._mascara_bin)
         if not hasattr(self, 'mascara'):
             self._mascara = self._bin_to_ip(self._mascara_bin)
-
 
     @staticmethod
     def _valida_ip(ip):
@@ -95,11 +92,10 @@ class CalcIPv4:
         blocos_binarios = [bin(int(x))[2:].zfill(8) for x in blocos]
         return ''.join(blocos_binarios)
 
-
     @staticmethod
     def _bin_to_ip(ip):
         n = 8
-        blocos = [str(int(ip[i:n+i], 2)) for i in range(0, 32, n)]
+        blocos = [str(int(ip[i:n + i], 2)) for i in range(0, 32, n)]
         return '.'.join(blocos)
 
     def _set_broadcast(self):
@@ -108,7 +104,6 @@ class CalcIPv4:
         self._broadcast = self._bin_to_ip(self._broadcast_bin)
         return self._broadcast
 
-
     def _set_rede(self):
         host_bits = 32 - self.prefixo
         self._rede_bin = self._ip_bin[:self.prefixo] + (host_bits * '0')
@@ -116,4 +111,4 @@ class CalcIPv4:
         return self._rede
 
     def _get_numero_ips(self):
-        return  2 ** (32 - self.prefixo)
+        return 2 ** (32 - self.prefixo)

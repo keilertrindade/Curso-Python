@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime,  date
 from locale import setlocale, LC_ALL
 from calendar import mdays, monthrange #'monthrange = pega o numero do dia na semana, e ultimo dia do mês'
 
@@ -6,10 +6,10 @@ from calendar import mdays, monthrange #'monthrange = pega o numero do dia na se
 
 setlocale(LC_ALL, 'pt_BR.utf-8') #String vazia muda para o local padrão do computador
 
-dt = datetime.now()
+dt = date.today
+print(dt)
 formatacao = dt.strftime('%A, %d de %B de %Y')
 # print(formatacao)
-
 
 # ULTIMO DIA DE CADA MÊS
 

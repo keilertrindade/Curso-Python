@@ -1,6 +1,6 @@
 """
-Pilhas e filhas
-Pilha (stack) - LIFO - lasti in, first out.
+Pilhas e filas
+Pilha (stack) - LIFO - last in, first out.
     Exemplo: Pilha de livros que são adicionados um sobre o outro
     lista.append() e lista.pop()
 

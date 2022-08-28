@@ -2,7 +2,7 @@ from time import sleep
 from threading import Thread
 from threading import Lock
 
-"""class MeuTrhead(Thread):
+"""class MeuThread(Thread):
     def __init__(self, texto, tempo):
         self.texto = texto
         self.tempo = tempo
@@ -14,13 +14,13 @@ from threading import Lock
         print(self.texto)
 
 
-t1 = MeuTrhead('Trhead 1', 5)
+t1 = MeuThread('Thread 1', 5)
 t1.start()
 
-t2 = MeuTrhead('Trhead 2', 3)
+t2 = MeuThread('Thread 2', 3)
 t2.start()
 
-t3 = MeuTrhead('Trhead 3', 2)
+t3 = MeuThread('Thread 3', 2)
 t3.start()
 
 
